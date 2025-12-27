@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cariton Hotel - Luxury Accommodation in Lagos, Nigeria</title>
+    <meta name="description" content="Experience luxury and comfort at Cariton Hotel, located along Apapa-Oshodi Express Way, Lagos. Premium rooms, world-class facilities, and exceptional service.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header - Auto-loaded by components.js -->
+    <header class="header" id="header"></header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slider" id="heroSlider">
+            <div class="hero-slide active">
+                <div class="hero-image" style="background-image: url('images/hero-1.jpg')"></div>
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title animate-fade-in">Welcome to Luxury</h1>
+                    <p class="hero-subtitle animate-fade-in-delay">Experience unparalleled comfort and elegance in the heart of Lagos</p>
+                    <!-- <div class="hero-buttons animate-fade-in-delay-2">
+                        <a href="booking.html" class="btn btn-primary btn-lg">Book Your Stay</a>
+                        <a href="rooms.html" class="btn btn-outline btn-lg">Explore Rooms</a>
+                    </div> -->
+                </div>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-image" style="background-image: url('images/hero-2.jpg')"></div>
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title animate-fade-in">Exceptional Service</h1>
+                    <p class="hero-subtitle animate-fade-in-delay">Where every moment becomes a cherished memory</p>
+                    <!-- <div class="hero-buttons animate-fade-in-delay-2">
+                        <a href="booking.html" class="btn btn-primary btn-lg">Book Your Stay</a>
+                        <a href="facilities.html" class="btn btn-outline btn-lg">Our Facilities</a>
+                    </div> -->
+                </div>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-image" style="background-image: url('images/hero-3.jpg')"></div>
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title animate-fade-in">Premium Events</h1>
+                    <p class="hero-subtitle animate-fade-in-delay">State-of-the-art event halls for your special occasions</p>
+                    <!-- <div class="hero-buttons animate-fade-in-delay-2">
+                        <a href="events.html" class="btn btn-primary btn-lg">View Event Halls</a>
+                        <a href="contact.html" class="btn btn-outline btn-lg">Contact Us</a>
+                    </div> -->
+                </div>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-image" style="background-image: url('images/penthouse.jpg')"></div>
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title animate-fade-in">Luxurious Suites</h1>
+                    <p class="hero-subtitle animate-fade-in-delay">Indulge in our premium accommodations</p>
+                    <!-- <div class="hero-buttons animate-fade-in-delay-2">
+                        <a href="rooms.html" class="btn btn-primary btn-lg">View Rooms</a>
+                        <a href="booking.html" class="btn btn-outline btn-lg">Book Now</a>
+                    </div> -->
+                </div>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-image" style="background-image: url('images/restaurant.jpg')"></div>
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title animate-fade-in">Fine Dining</h1>
+                    <p class="hero-subtitle animate-fade-in-delay">Exquisite culinary experiences await</p>
+                    <!-- <div class="hero-buttons animate-fade-in-delay-2">
+                        <a href="facilities.html" class="btn btn-primary btn-lg">Explore Dining</a>
+                        <a href="booking.html" class="btn btn-outline btn-lg">Reserve Now</a>
+                    </div> -->
+                </div>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-image" style="background-image: url('images/gym.jpg')"></div>
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title animate-fade-in">World-Class Amenities</h1>
+                    <p class="hero-subtitle animate-fade-in-delay">Everything you need for a perfect stay</p>
+                    <!-- <div class="hero-buttons animate-fade-in-delay-2">
+                        <a href="facilities.html" class="btn btn-primary btn-lg">View Facilities</a>
+                        <a href="contact.html" class="btn btn-outline btn-lg">Get in Touch</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="slider-indicators" id="sliderIndicators"></div>
+    </section>
+
+    <!-- Quick Booking Widget -->
+    <section class="booking-widget">
+        <div class="container">
+            <div class="booking-widget-card">
+                <h3 class="booking-widget-title">Book Your Stay</h3>
+                <form class="booking-widget-form" action="booking.html" method="get">
+                    <div class="booking-form-grid">
+                        <div class="form-field">
+                            <label for="checkin">Check-In</label>
+                            <input type="date" id="checkin" name="checkin" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="checkout">Check-Out</label>
+                            <input type="date" id="checkout" name="checkout" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="adults">Adults</label>
+                            <select id="adults" name="adults" required>
+                                <option value="1"selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6+</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="children">Children</label>
+                            <select id="children" name="children">
+                                <option value="0" selected>0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5+</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <button type="submit" class="btn btn-primary btn-lg booking-submit">
+                                Check Availability
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Discover Cariton</span>
+                <h2 class="section-title">A Haven of Luxury and Comfort</h2>
+                <div class="title-divider"></div>
+            </div>
+            <div class="intro-content">
+                <p class="intro-text">
+                    Nestled along the vibrant Apapa-Oshodi Express Way in Lagos, Cariton Hotel stands as a beacon of luxury and sophistication. 
+                    Our meticulously designed spaces blend contemporary elegance with warm Nigerian hospitality, creating an unforgettable experience 
+                    for both business and leisure travelers.
+                </p>
+                <p class="intro-text">
+                    From our exquisitely appointed rooms to our world-class dining and event facilities, every detail has been crafted to exceed 
+                    your expectations. Whether you're seeking a peaceful retreat or a venue for your special occasion, Cariton Hotel is your 
+                    premier destination.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Rooms Section -->
+    <section class="featured-rooms">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Accommodations</span>
+                <h2 class="section-title">Rooms & Suites</h2>
+                <div class="title-divider"></div>
+            </div>
+            <div class="rooms-grid">
+                <!-- Studio - ₦20,000 -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="images/studio.jpg" alt="Studio Room">
+                        <div class="room-overlay">
+                            <a href="rooms.html#studio" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3 class="room-name">Studio</h3>
+                        <div class="room-price">₦20,000 <span>per night</span></div>
+                    </div>
+                </div>
+                <!-- Standard - ₦30,000 -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="images/standard.jpg" alt="Standard Room">
+                        <div class="room-overlay">
+                            <a href="rooms.html#standard" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3 class="room-name">Standard</h3>
+                        <div class="room-price">₦30,000 <span>per night</span></div>
+                    </div>
+                </div>
+                <!-- Deluxe - ₦35,000 -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="images/deluxe.jpg" alt="Deluxe Room">
+                        <div class="room-overlay">
+                            <a href="rooms.html#deluxe" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3 class="room-name">Deluxe</h3>
+                        <div class="room-price">₦35,000 <span>per night</span></div>
+                    </div>
+                </div>
+                <!-- Premium - ₦40,000 -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="images/premium.jpg" alt="Premium Room">
+                        <div class="room-overlay">
+                            <a href="rooms.html#premium" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3 class="room-name">Premium</h3>
+                        <div class="room-price">₦40,000 <span>per night</span></div>
+                    </div>
+                </div>
+                <!-- Mini Suite - ₦50,000 -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="images/mini-suite.jpg" alt="Mini Suite">
+                        <div class="room-overlay">
+                            <a href="rooms.html#mini-suite" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3 class="room-name">Mini Suite</h3>
+                        <div class="room-price">₦50,000 <span>per night</span></div>
+                    </div>
+                </div>
+                <!-- Penthouse - ₦60,000 -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="images/penthouse.jpg" alt="Penthouse Suite">
+                        <div class="room-overlay">
+                            <a href="rooms.html#penthouse" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3 class="room-name">Penthouse</h3>
+                        <div class="room-price">₦60,000 <span>per night</span></div>
+                    </div>
+                </div>
+                <!-- Royal Suite - ₦70,000 -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="images/royal-suite.jpg" alt="Royal Suite">
+                        <div class="room-overlay">
+                            <a href="rooms.html#royal-suite" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3 class="room-name">Royal Suite</h3>
+                        <div class="room-price">₦70,000 <span>per night</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 3rem;">
+                <a href="rooms.html" class="btn btn-primary btn-lg">View All Rooms</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Highlights -->
+    <section class="facilities-highlights">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Amenities</span>
+                <h2 class="section-title">World-Class Facilities</h2>
+                <div class="title-divider"></div>
+            </div>
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="facility-name">In-House Restaurant</h3>
+                    <p class="facility-description">Exquisite dining experiences with local and international cuisine</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="facility-name">Wine Bar</h3>
+                    <p class="facility-description">Premium selection of wines and spirits in elegant ambiance</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 6v6l4 2"></path>
+                        </svg>
+                    </div>
+                    <h3 class="facility-name">Snooker Bar</h3>
+                    <p class="facility-description">Relax and unwind with friends in our premium snooker lounge</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                        </svg>
+                    </div>
+                    <h3 class="facility-name">Fitness Center</h3>
+                    <p class="facility-description">State-of-the-art gym equipment for your wellness journey</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <h3 class="facility-name">Event Halls</h3>
+                    <p class="facility-description">Two magnificent halls perfect for weddings, conferences, and celebrations</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 class="facility-name">Concierge Service</h3>
+                    <p class="facility-description">24/7 personalized service to cater to your every need</p>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 3rem;">
+                <a href="facilities.html" class="btn btn-primary btn-lg">Explore All Facilities</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-overlay"></div>
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Experience Luxury?</h2>
+                <p class="cta-text">Book your stay at Cariton Hotel and indulge in unparalleled comfort and service</p>
+                <a href="booking.html" class="btn btn-primary btn-lg">Reserve Your Room</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - Auto-loaded by components.js -->
+    <footer class="footer" id="footer"></footer>
+
+    <!-- WhatsApp button auto-loaded by components.js -->
+
+    <!-- Load components first, then main.js -->
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

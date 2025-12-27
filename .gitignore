@@ -1,0 +1,15 @@
+# Documentation files
+*.md
+
+# macOS
+.DS_Store
+
+# PHP
+vendor/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp

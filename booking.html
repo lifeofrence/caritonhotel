@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Stay - Cariton Hotel | Online Reservation</title>
+    <meta name="description" content="Book your room at Cariton Hotel Lagos. Easy online reservation system for luxury accommodation. Best rates guaranteed.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+     <!-- Header - Auto-loaded by components.js -->
+    <header class="header" id="header"></header>
+
+    <section class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="container">
+            <h1 class="page-title">Book Your Stay</h1>
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Booking</span>
+            </nav>
+        </div>
+    </section>
+
+    <section class="booking-section">
+        <div class="container">
+            <!-- Success/Error Message Display -->
+            <div id="bookingMessage" style="display: none; margin-bottom: 2rem; padding: 1.5rem; border-radius: var(--radius-md); text-align: center; font-weight: 500;">
+            </div>
+
+            <div class="section-header text-center">
+                <span class="section-subtitle">Reservation</span>
+                <!-- <h2 class="section-title">Complete Your Booking</h2> -->
+                <div class="title-divider"></div>
+                <!-- <p style="max-width: 800px; margin: 0 auto; color: var(--gray);">
+                    Fill in the details below to reserve your room at Cariton Hotel. We'll confirm your booking shortly.
+                </p> -->
+            </div>
+
+
+            <form class="booking-form" id="bookingForm" action="process_booking.php" method="post">
+
+                <h3 style="margin: 2rem 0 1.5rem;">Booking Details</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkIn">Check-In Date *</label>
+                        <input type="date" id="checkIn" name="checkIn" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkOut">Check-Out Date *</label>
+                        <input type="date" id="checkOut" name="checkOut" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="roomType">Room Type *</label>
+                        <select id="roomType" name="room" required>
+                            <option value="">Select a room type</option>
+                            <option value="Studio" data-price="20000">Studio - ₦20,000/night</option>
+                            <option value="Standard" data-price="30000">Standard - ₦30,000/night</option>
+                            <option value="Deluxe" data-price="35000">Deluxe - ₦35,000/night</option>
+                            <option value="Premium" data-price="40000">Premium - ₦40,000/night</option>
+                            <option value="Mini Suite" data-price="50000">Mini Suite - ₦50,000/night</option>
+                            <option value="Penthouse" data-price="60000">Penthouse - ₦60,000/night</option>
+                            <option value="Royal Suite" data-price="70000">Royal Suite - ₦70,000/night</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="numRooms">Number of Rooms *</label>
+                        <input type="number" id="numRooms" name="nofroom" min="1" max="10" value="1" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="adults">Number of Adults *</label>
+                        <input type="number" id="adults" name="adults" min="1" max="10" value="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="children">Number of Children</label>
+                        <input type="number" id="children" name="children" min="0" max="10" value="0">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="payment">Payment Method *</label>
+                        <select id="payment" name="payment" required>
+                            <option value="Pay on Arrival">Pay on Arrival</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Total Guests *</label>
+                        <input type="number" id="guests" name="guests" min="1" value="1" required readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="specialRequests">Special Requests</label>
+                    <textarea id="specialRequests" name="message" rows="4" placeholder="Any special requirements or requests..."></textarea>
+                </div>
+
+                <h3 style="margin-bottom: 1.5rem;">Guest Information</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+
+               
+
+                
+                <!-- Hidden fields for processing -->
+                <input type="hidden" id="pricePerNight" name="pricePerNight" value="0">
+                <input type="hidden" id="fullName" name="name" value="">
+
+
+                <!-- Booking Summary -->
+                <div class="booking-summary">
+                    <h3>Booking Summary</h3>
+                    <div class="summary-item">
+                        <span>Guest Name:</span>
+                        <span id="summaryName">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Email:</span>
+                        <span id="summaryEmail">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Phone:</span>
+                        <span id="summaryPhone">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Room Type:</span>
+                        <span id="summaryRoomType">-</span>
+                    </div>
+                    <!-- <div class="summary-item">
+                        <span>Number of Rooms:</span>
+                        <span id="summaryNumRooms">1</span>
+                    </div> -->
+                    <div class="summary-item">
+                        <span>Check-In:</span>
+                        <span id="summaryCheckIn">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Check-Out:</span>
+                        <span id="summaryCheckOut">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Number of Nights:</span>
+                        <span id="summaryNights">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Price per Night:</span>
+                        <span id="summaryPricePerNight">₦0</span>
+                    </div>
+                    <div class="summary-item summary-total">
+                        <span>Total Amount:</span>
+                        <span id="summaryTotal">₦0</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 1.5rem; background: var(--off-white); border-radius: var(--radius-md);">
+                    <label style="display: flex; align-items: center; cursor: pointer;">
+                        <input type="checkbox" required style="margin-right: 0.5rem; width: 20px; height: 20px;">
+                        <span>I agree to the <a href="#" style="color: var(--primary-color);">terms and conditions</a> and <a href="#" style="color: var(--primary-color);">cancellation policy</a></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 2rem;">
+                    Complete Booking
+                </button>
+
+                <p style="text-align: center; margin-top: 1rem; color: var(--gray); font-size: 0.875rem;">
+                    Need help? Call us at <a href="tel:+2347044738132" style="color: var(--primary-color);">+234 704 473 8132</a> 
+                    or <a href="https://wa.me/2347044738132" style="color: var(--primary-color);">WhatsApp us</a>
+                </p>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- Footer - Auto-loaded by components.js -->
+    <footer class="footer" id="footer"></footer>
+
+    <a href="https://wa.me/2347044738132" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script src="js/components.js"></script>
+    <script>
+        // Booking Form Logic
+        const form = document.getElementById('bookingForm');
+        const roomTypeSelect = document.getElementById('roomType');
+        const numRoomsInput = document.getElementById('numRooms');
+        const checkInInput = document.getElementById('checkIn');
+        const checkOutInput = document.getElementById('checkOut');
+        const adultsInput = document.getElementById('adults');
+        const childrenInput = document.getElementById('children');
+        const guestsInput = document.getElementById('guests');
+        const firstNameInput = document.getElementById('firstName');
+        const lastNameInput = document.getElementById('lastName');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const pricePerNightInput = document.getElementById('pricePerNight');
+        const fullNameInput = document.getElementById('fullName');
+        const bookingMessageDiv = document.getElementById('bookingMessage');
+
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Function to display messages
+        function showMessage(message, isSuccess) {
+            bookingMessageDiv.textContent = message;
+            bookingMessageDiv.style.display = 'block';
+            
+            if (isSuccess) {
+                bookingMessageDiv.style.backgroundColor = '#d4edda';
+                bookingMessageDiv.style.color = '#155724';
+                bookingMessageDiv.style.border = '1px solid #c3e6cb';
+            } else {
+                bookingMessageDiv.style.backgroundColor = '#f8d7da';
+                bookingMessageDiv.style.color = '#721c24';
+                bookingMessageDiv.style.border = '1px solid #f5c6cb';
+            }
+
+            // Scroll to message
+            bookingMessageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Auto-hide after 10 seconds
+            setTimeout(() => {
+                bookingMessageDiv.style.display = 'none';
+            }, 10000);
+        }
+
+        // Check for messages in URL
+        const message = getUrlParameter('message');
+        const error = getUrlParameter('error');
+        
+        if (message) {
+            showMessage(message, true);
+        } else if (error) {
+            showMessage(error, false);
+        }
+
+        // Pre-fill form from URL parameters (from index page)
+        const checkinParam = getUrlParameter('checkin');
+        const checkoutParam = getUrlParameter('checkout');
+        const adultsParam = getUrlParameter('adults');
+        const childrenParam = getUrlParameter('children');
+
+        if (checkinParam) {
+            checkInInput.value = checkinParam;
+        }
+        if (checkoutParam) {
+            checkOutInput.value = checkoutParam;
+        }
+        if (adultsParam) {
+            adultsInput.value = adultsParam;
+        }
+        if (childrenParam) {
+            childrenInput.value = childrenParam;
+        }
+
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        checkInInput.setAttribute('min', today);
+        checkOutInput.setAttribute('min', today);
+
+        // Calculate total guests
+        function updateGuests() {
+            const adults = parseInt(adultsInput.value) || 0;
+            const children = parseInt(childrenInput.value) || 0;
+            const totalGuests = adults + children;
+            guestsInput.value = totalGuests;
+        }
+
+        // Update summary
+        function updateSummary() {
+            const roomType = roomTypeSelect.options[roomTypeSelect.selectedIndex];
+            const numRooms = parseInt(numRoomsInput.value) || 1;
+            const checkIn = new Date(checkInInput.value);
+            const checkOut = new Date(checkOutInput.value);
+            
+            // Update guest information
+            const firstName = firstNameInput.value.trim();
+            const lastName = lastNameInput.value.trim();
+            const fullName = `${firstName} ${lastName}`.trim();
+            document.getElementById('summaryName').textContent = fullName || '-';
+            document.getElementById('summaryEmail').textContent = emailInput.value || '-';
+            document.getElementById('summaryPhone').textContent = phoneInput.value || '-';
+            
+            // Update booking details
+            document.getElementById('summaryRoomType').textContent = roomType.text || '-';
+            // Number of Rooms is commented out in HTML
+            document.getElementById('summaryCheckIn').textContent = checkInInput.value || '-';
+            document.getElementById('summaryCheckOut').textContent = checkOutInput.value || '-';
+            
+            if (checkInInput.value && checkOutInput.value) {
+                const nights = Math.ceil((checkOut - checkIn) / (1000 * 60 * 60 * 24));
+                document.getElementById('summaryNights').textContent = nights > 0 ? nights : 0;
+                
+                const pricePerNight = parseInt(roomType.dataset.price) || 0;
+                document.getElementById('summaryPricePerNight').textContent = '₦' + pricePerNight.toLocaleString();
+                
+                // Update hidden field for PHP processing
+                pricePerNightInput.value = pricePerNight;
+                
+                const total = pricePerNight * nights * numRooms;
+                document.getElementById('summaryTotal').textContent = '₦' + total.toLocaleString();
+            }
+        }
+
+        // Update full name hidden field
+        function updateFullName() {
+            const firstName = firstNameInput.value.trim();
+            const lastName = lastNameInput.value.trim();
+            fullNameInput.value = `${firstName} ${lastName}`.trim();
+            updateSummary(); // Update summary when name changes
+        }
+
+        // Event listeners
+        roomTypeSelect.addEventListener('change', updateSummary);
+        numRoomsInput.addEventListener('input', updateSummary);
+        checkInInput.addEventListener('change', function() {
+            checkOutInput.setAttribute('min', this.value);
+            updateSummary();
+        });
+        checkOutInput.addEventListener('change', updateSummary);
+        adultsInput.addEventListener('input', updateGuests);
+        childrenInput.addEventListener('input', updateGuests);
+        firstNameInput.addEventListener('input', updateFullName);
+        lastNameInput.addEventListener('input', updateFullName);
+        emailInput.addEventListener('input', updateSummary);
+        phoneInput.addEventListener('input', updateSummary);
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            // Update all hidden fields before submission
+            updateFullName();
+            updateGuests();
+            
+            const roomType = roomTypeSelect.options[roomTypeSelect.selectedIndex];
+            const pricePerNight = parseInt(roomType.dataset.price) || 0;
+            pricePerNightInput.value = pricePerNight;
+            
+            // Form will submit normally to process_booking.php
+            // The PHP script will handle email sending and redirect
+        });
+
+        // Initialize
+        updateGuests();
+        updateSummary();
+    </script>
+</body>
+</html>
