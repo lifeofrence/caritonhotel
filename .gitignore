@@ -13,3 +13,7 @@ vendor/
 # Temporary files
 *.tmp
 *.temp
+
+.start.sh
+.status.html
+.template.html
